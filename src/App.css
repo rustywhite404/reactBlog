@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+
+.black-nav {
+  background : black;
+  width : 100%;
+  display : flex;
+  color : white;
+  padding : 20px;
+  font-weight : 600;
+  font-size : 20px;
+}
+
+.main-nav{
+  width : 100%;
+  display : flex;
+  color : #333;
+  padding : 20px;
+  font-weight : 600;
+  font-size : 20px;
+  letter-spacing: 2px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.Hello{
+  color:burlywood;
+}
+
+.list {
+  margin-top : 30px;
+  text-align : left;
+  padding-left : 20px;
+  padding-right : 20px;
+}
+
+.title-list{
+  margin-top : 30px;
+  text-align : left;
+  padding-left : 20px;
+  padding-right : 20px;
+  font-family: '조선일보명조';
+}
+
+.title-list p{
+  font-size: 14px;
+  transform:rotate(-0.03deg);
+}
