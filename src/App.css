@@ -90,3 +90,9 @@
   font-family: '조선일보명조';
   margin-right:3px;
 }
+
+.modal{
+  margin-top : 20px;
+  padding : 20px;
+  background : #eee;
+}
