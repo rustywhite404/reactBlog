@@ -16,6 +16,7 @@ function App() {
 
   let [title,changeTitle] = useState(['플로베르의 앵무새','초원의 집','부덴브로크 가의 사람들']);
   let [like,changeLike] = useState(0);
+  let [likeCount,changeLikeCount] = useState([0,0,0]);
   let [modal,changeModal] = useState(false);
   let exArray = [2,3,4];
   let exArray2 = exArray.map(function(a){
@@ -39,6 +40,11 @@ function App() {
     return normalArray;
   }
 
+  function changeLikeCountFunction(i){
+    var newArray = [...likeCount];
+    newArray[i]++;
+    changeLikeCount(newArray); 
+  }
 
   function changeTitleFunction(){
      /* var newArray = title;
@@ -121,10 +127,10 @@ function App() {
      
 
         {
-          title.map(function(a){
+          title.map(function(a, i){
             return(
               <div className='title-list'>
-                <h3> {a} <span onClick={ ()=>{ changeLike(like + 1)} } >♥</span> { like } </h3>
+                <h3> {a} <span onClick={ ()=>{ changeLikeCountFunction(i)} } >♥</span> { likeCount[i] } </h3>
                 <p>줄리언 반스</p>
                 <hr />
                 {/* 리액트에서는 div onclick="실행할 자바스크립트" 의 문법이
