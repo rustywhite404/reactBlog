@@ -97,3 +97,27 @@
   padding : 20px;
   background : #eee;
 }
+
+.publish {
+  margin-top : 30px;
+  margin-bottom : 30px;
+}
+.publish input {
+  padding : 10px;
+  font-size : 16px;
+  border-radius : 5px;
+  width : 80%;
+  border : 1px solid grey;
+  margin-top:3px;
+}
+.publish button {
+  display : block;
+  margin : auto;
+  margin-top : 10px;
+  padding:10px 15px;
+  background-color: lightcoral;
+  border:0;
+  border-radius: 5px;
+  color: white;
+  font-family: '조선일보명조';
+}

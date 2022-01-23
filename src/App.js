@@ -23,7 +23,7 @@ function App() {
   });
 
   let[selectTitle, changeSelectTitle] = useState(0);
-
+  let[inputData, changeInputData] = useState('');
 
 
   function normalFor(){
@@ -71,7 +71,10 @@ function App() {
         {
           title.map(function(a, i){
             return(
-              <div className='title-list'>
+              <div className='title-list' key={i}>
+                {/* key={} 속성을 안 만들어도 작동은 하지만 리액트에서는 반목문을 돌린 요소에는 꼭 key={}를 적으라고 권장한다. 
+                  {}안에는 반복문이 돌 때 마다 증가하는 변수를 넣어주면 됨(i 같은 거)
+                */}
                 <h3 onClick={()=>{changeSelectTitle(i)}}> {a} <span onClick={ ()=>{ changeLikeCountFunction(i)} } >♥</span> { likeCount[i] } </h3>
                 <p>줄리언 반스</p>
                 <hr />          
@@ -79,6 +82,22 @@ function App() {
             )
           })
         }
+        <div>
+        <input onChange={(e)=>{changeInputData(e.target.value)}}/>
+        {/* 사용자가 input에 입력한 데이터는 중요한 데이터이기 때문에 state에 저장해서 사용하는 것이 일반적이다. 
+        저장하는 법을 먼저 알아보자. 
+        1. 저장하려면 빈 state가 하나 필요하니까 state 부터 만든다.  
+        2. 사용자가 input에 입력한 값을 알고 싶으면 onChange 이벤트 핸들러로 알아볼 수 있다. 
+        e.target = 자바스크립트 문법에서 '지금 이벤트가 동작하는 html요소', .value = 입력한 값
+        */}
+        </div>
+
+        <div className="publish">
+        <input placeholder='Subject' />
+        <input placeholder='Author' />
+        <button>저장</button>
+        </div>
+        
              
         <button className="basicBtn" onClick={changeTitleFunction}>제목 변경 버튼</button>
         <button className="basicBtn" onClick={changeSortFunction}>정렬 변경 버튼</button>
