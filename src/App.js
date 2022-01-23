@@ -25,6 +25,14 @@ function App() {
   let[selectTitle, changeSelectTitle] = useState(0);
   let[inputData, changeInputData] = useState('');
 
+  let[inputTitle, changeInputTitle] = useState('');
+
+  function saveFunction(){
+    var subjectArray = [...title];
+    subjectArray.unshift(inputTitle);
+    //unshift는 array 맨 앞에 자료를 하나 추가하고 싶을 때 사용한다.
+    changeTitle(subjectArray);
+  }
 
   function normalFor(){
     var normalArray = [];
@@ -93,9 +101,8 @@ function App() {
         </div>
 
         <div className="publish">
-        <input placeholder='Subject' />
-        <input placeholder='Author' />
-        <button>저장</button>
+        <input placeholder='Subject' onChange={(e)=>{changeInputTitle(e.target.value)}} />
+        <button onClick={()=>{saveFunction()}}>저장</button>
         </div>
         
              
