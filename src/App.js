@@ -5,7 +5,7 @@ import { useState } from 'react';
 function Modal(props){
   return(
     <div className='modal'>
-      <h2>제목 : {props.title[0]}</h2>
+      <h2>제목 : {props.title[props.selectTitle]}</h2>
       <p>날짜</p>
       <p>상세내용</p>        
     </div>
@@ -21,6 +21,10 @@ function App() {
   let exArray2 = exArray.map(function(a){
     return a * 10
   });
+
+  let[selectTitle, changeSelectTitle] = useState(0);
+
+
 
   function normalFor(){
     var normalArray = [];
@@ -68,7 +72,7 @@ function App() {
           title.map(function(a, i){
             return(
               <div className='title-list'>
-                <h3> {a} <span onClick={ ()=>{ changeLikeCountFunction(i)} } >♥</span> { likeCount[i] } </h3>
+                <h3 onClick={()=>{changeSelectTitle(i)}}> {a} <span onClick={ ()=>{ changeLikeCountFunction(i)} } >♥</span> { likeCount[i] } </h3>
                 <p>줄리언 반스</p>
                 <hr />          
               </div>
@@ -81,8 +85,13 @@ function App() {
         <button className="basicBtn" onClick={changeModalFunction}>모달창 열기</button>
         <button className="basicBtn" onClick={()=>{changeModal(false)}}>모달창 닫기</button>
         <button className="basicBtn" onClick={changeModalFunction2}>모달창 여닫기</button>
+        <br />
+        <button className="basicBtn" onClick={()=>{changeSelectTitle(0)}}>0번 글</button>
+        <button className="basicBtn" onClick={()=>{changeSelectTitle(1)}}>1번 글</button>
+        <button className="basicBtn" onClick={()=>{changeSelectTitle(2)}}>2번 글</button>
+
         {
-          modal===true ? <Modal title={title} /> : null 
+          modal===true ? <Modal title={title} selectTitle={selectTitle} /> : null 
         }
         {/* App 안에 들어있는 <Modal> 컴포넌트를 부모-자식 관계라고 표현할 수 있는데, 
         자식 컴포넌트가 부모 컴포넌트 안에 있는 state를 가져다 써야 할 경우가 있다. 
