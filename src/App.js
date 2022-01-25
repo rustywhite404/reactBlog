@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Modal(props){
   return(
@@ -137,5 +137,24 @@ function App() {
     
   );
 }
+
+{/* 리액트 구 문법 알아보기
+
+  class = 데이터/함수를 보관하는 덩어리. 여러 개의 데이터나 함수를 한 곳에 보관하고 싶을 때 쓴다. 
+  extends = 덩어리를 만들 때 오른 쪽에 있는 애의 성질을 물려받아서 덩어리를 만든다
+  React.Component = 컴포넌트 성질을 가지고 있는 덩어리. 이걸 extends 해서 class를 만들면 여태 만들었던 컴포넌트를 만들어 낼 수 있다. 
+
+*/}
+class Profile extends React.Component{
+  constructor(){
+    super();
+  }
+  render(){
+    return(
+      <div>프로필 영역입니다.</div>
+    )
+  }
+}
+
 
 export default App;
